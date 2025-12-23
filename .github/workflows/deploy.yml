@@ -71,7 +71,7 @@ jobs:
         echo "⏳ Waiting for LoadBalancer IP..."
         sleep 60
 
-        EXTERNAL_IP=$(kubectl get svc java-app-service -n github-action-ns -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
+        EXTERNAL_IP=$(kubectl get svc java-app-service -n github-leonardo-action-ns -o jsonpath='{.status.loadBalancer.ingress[0].hostname}')
         
         if [ -z "$EXTERNAL_IP" ]; then
           echo "❌ LoadBalancer IP not available yet."
